@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Plan Penny</string>
+
+    <string name="action_settings">Settings</string>
+
+    <color name="MainColor">#eb5c3e</color>
+    <color name="SecondaryColor">#fef3ea</color>
+    <color name="shadedColor">#E5DBD3</color>
+
+</resources>
