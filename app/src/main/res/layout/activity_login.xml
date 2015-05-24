@@ -1,0 +1,118 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.example.jeanette.planpenny.Activities.LoginActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="86dp"
+            android:layout_gravity="left|top"
+            android:background="@color/MainColor"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Log In"
+                android:id="@+id/textLogIn"
+                android:textColor="@color/SecondaryColor"
+                android:textSize="@android:dimen/app_icon_size" />
+
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/transparentbackground">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Email:"
+                android:id="@+id/textEmail"
+                android:layout_marginTop="123dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/editTextEmail"
+                android:layout_alignTop="@+id/textEmail"
+                android:layout_toEndOf="@+id/textPass"
+                android:layout_toRightOf="@+id/textPass"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Password:"
+                android:id="@+id/textPass"
+                android:layout_below="@+id/editTextEmail"
+                android:layout_alignStart="@+id/textEmail"
+                android:layout_alignLeft="@+id/textEmail"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/editTextPass"
+                android:layout_below="@+id/editTextEmail"
+                android:layout_alignStart="@+id/editTextEmail"
+                android:layout_alignLeft="@+id/editTextEmail"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OK"
+                android:id="@+id/buttonOK"
+                android:background="@color/MainColor"
+                android:textColor="@color/SecondaryColor"
+                android:layout_below="@+id/editTextPass"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="62dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create User"
+                android:id="@+id/buttonCreateUser"
+                android:layout_alignTop="@+id/buttonOK"
+                android:layout_alignEnd="@+id/editTextPass"
+                android:layout_alignRight="@+id/editTextPass"
+                android:background="@color/MainColor"
+                android:textColor="@color/SecondaryColor" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>
