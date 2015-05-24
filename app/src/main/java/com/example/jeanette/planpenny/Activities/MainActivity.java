@@ -1,4 +1,4 @@
-package com.example.jeanette.planpenny;
+package com.example.jeanette.planpenny.Activities;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.example.jeanette.planpenny.Adapters.FragmentAdapter;
-import com.example.jeanette.planpenny.R;
 
 public class MainActivity extends FragmentActivity {
 
