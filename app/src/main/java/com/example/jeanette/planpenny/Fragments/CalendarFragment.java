@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.example.jeanette.planpenny.Activities.CalendarDay;
+import com.example.jeanette.planpenny.Activities.CalendarDayActivity;
 import com.example.jeanette.planpenny.R;
 
 import java.text.ParseException;

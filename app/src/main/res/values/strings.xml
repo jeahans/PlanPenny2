@@ -10,5 +10,10 @@
 
     <string name="title_activity_start_splash">StartSplash</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_create_user">CreateUserActivity</string>
+    <string name="title_activity_calendar_day">CalendarDayActivity</string>
+    <string name="title_activity_task_append">TaskAppend</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

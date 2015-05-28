@@ -1,13 +1,14 @@
 package com.example.jeanette.planpenny.Activities;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.jeanette.planpenny.R;
 
-public class CalendarDayActivity extends ActionBarActivity {
+
+public class CalendarDayActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

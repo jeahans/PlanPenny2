@@ -10,19 +10,6 @@ import android.widget.ListView;
 
 import com.example.jeanette.planpenny.R;
 
-package com.example.jeanette.planpenny.Fragments;
-
-import android.app.Activity;
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import android.support.v4.app.Fragment;
-
-import com.example.jeanette.planpenny.R;
-
 
 
 public class CalendarDayFragment extends Fragment implements View.OnClickListener {

@@ -2,13 +2,13 @@ package com.example.jeanette.planpenny.Activities;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.example.jeanette.planpenny.Adapters.FragmentAdapter;
+import com.example.jeanette.planpenny.R;
 
 public class MainActivity extends FragmentActivity {
 
@@ -39,12 +39,6 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-    public static class SettingsFragment extends PreferenceFragment{
-        @Override
-        public void onCreate(Bundle savedInstanceState){
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.settings);
-        }
-    }
+
 
 }

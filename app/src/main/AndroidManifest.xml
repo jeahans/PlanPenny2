@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/planpenny"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -17,8 +17,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.StartSplash"
-            android:label="@string/title_activity_start_splash" >
+            android:name=".Activities.StartSplash">
+        </activity>
+        <activity
+            android:name=".Activities.LoginActivity" >
+        </activity>
+        <activity
+            android:name=".Activities.CreateUserActivity" >
+        </activity>
+        <activity
+            android:name=".Activities.CalendarDayActivity">
+        </activity>
+        <activity
+            android:name=".Activities.TaskAppend">
         </activity>
     </application>
 
