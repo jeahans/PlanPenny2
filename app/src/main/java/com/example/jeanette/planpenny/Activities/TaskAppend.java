@@ -38,7 +38,7 @@ public class TaskAppend extends Activity implements View.OnClickListener {
         taskDAO = new TaskDAO(this);
 
         Bundle bundle = getIntent().getExtras();
-        taskid = bundle.getLong("Task", 0);
+        taskid = bundle.getInt("Task", 0);
 
         taskname = (TextView) findViewById(R.id.taskName);
         String tName = taskDAO.getTaskByID(taskid).getTaskname();

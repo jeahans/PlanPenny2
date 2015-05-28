@@ -114,7 +114,7 @@ public class TasksFragment extends ListFragment implements View.OnClickListener 
                 input.setText("");
             }
         });
-        input.setText("Project");
+        input.setText("Task");
         input.setSelectAllOnFocus(true);
 
 

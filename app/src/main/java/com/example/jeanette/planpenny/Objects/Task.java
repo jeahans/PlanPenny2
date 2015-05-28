@@ -15,12 +15,12 @@ public class Task {
     private String reminder;
     private String place;
     private String note;
-    private long taskID;
+    private int taskID;
     private int updateStatus;
     private Project project;
     private Category category;
-    private long projectid;
-    private long categoryid;
+    private int projectid;
+    private int categoryid;
 
     private int mHeight;
     private ArrayList<Category> categories;
@@ -101,9 +101,9 @@ public class Task {
         this.note = note;
     }
 
-    public long getTaskID(){return taskID;}
+    public int getTaskID(){return taskID;}
 
-    public void setTaskID(long taskID){
+    public void setTaskID(int taskID){
         this.taskID = taskID;
     }
     public Project getProject(){

@@ -73,13 +73,13 @@ public class TaskDAO {
     }
 
 
-    public boolean updateTaskName(Long taskID, String taskname){
+    public boolean updateTaskName(int taskID, String taskname){
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_TASK_NAME, taskname);
         return mDatabase.update(DBHelper.TABLE_TASK, values, DBHelper.COLUMN_TASK_ID + "=" + taskID, null) > 0;
     }
 
-    public boolean updateTask(Long taskID, String taskname, String ttc, String timeused, String starttime,
+    public boolean updateTask(int taskID, String taskname, String ttc, String timeused, String starttime,
                               String endtime, String place, String note, long projectID, long categoryID) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_TASK_NAME, taskname);
@@ -93,13 +93,13 @@ public class TaskDAO {
         values.put(DBHelper.COLUMN_CATEGORY_ID, categoryID);
         return mDatabase.update(DBHelper.TABLE_TASK, values, DBHelper.COLUMN_TASK_ID + "=" + taskID, null) > 0;
     }
-    public boolean addProjectToTask(long taskID, long projectID) {
+    public boolean addProjectToTask(int taskID, long projectID) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_PROJECT_ID, projectID);
         return mDatabase.update(DBHelper.TABLE_TASK, values, DBHelper.COLUMN_TASK_ID + "=" + taskID, null) > 0;
     }
 
-    public boolean addCategoryToTask(long taskID, long categoryID) {
+    public boolean addCategoryToTask(int taskID, long categoryID) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_CATEGORY_ID, categoryID);
         return mDatabase.update(DBHelper.TABLE_TASK, values, DBHelper.COLUMN_TASK_ID + "=" + taskID, null) > 0;
@@ -108,7 +108,7 @@ public class TaskDAO {
 
 
     public void deleteTask(Task task) {
-        long id = task.getTaskID();
+        int id = task.getTaskID();
         System.out.println("the deleted task has the id: " + id);
         mDatabase.delete(DBHelper.TABLE_TASK, DBHelper.COLUMN_TASK_ID + "=" + id, null);
     }
@@ -154,7 +154,7 @@ public class TaskDAO {
 
     private Task cursorToTask(Cursor cursor) {
         Task task = new Task();
-        task.setTaskID(cursor.getLong(0));
+        task.setTaskID(cursor.getInt(0));
         task.setTaskname(cursor.getString(1));
         task.setTtc(cursor.getString(2));
         task.setTimeUsed(cursor.getString(3));

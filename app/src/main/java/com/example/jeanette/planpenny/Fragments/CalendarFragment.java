@@ -395,7 +395,7 @@ public class CalendarFragment extends Fragment implements View.OnClickListener {
         @Override
         public void onClick(View view) {
             String date_month_year = (String) view.getTag();
-            Intent intent = new Intent(getActivity(),CalendarDay.class);
+            Intent intent = new Intent(getActivity(),CalendarDayActivity.class);
             intent.putExtra("fromfragment","CalendarFragment");
             intent.putExtra("date",date_month_year);
             startActivity(intent);
