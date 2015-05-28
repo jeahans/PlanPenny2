@@ -1,9 +1,9 @@
 package com.example.jeanette.planpenny.Activities;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,17 +19,22 @@ import com.example.jeanette.planpenny.Objects.Project;
 import com.example.jeanette.planpenny.Objects.Task;
 import com.example.jeanette.planpenny.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TaskAppend extends Activity implements View.OnClickListener {
 
+    private static final String TAG = "TASKAPPEND";
     private TaskDAO taskDAO;
-    long taskid;
+    int taskid;
 
     Button btnDelete, btnAddProject, btnAddCategory;
     EditText startdate,starttime, enddate, endtime,ttc,alertdate, alerttime,description;
     TextView taskname;
+
+    private SimpleDateFormat dateFormatter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +42,11 @@ public class TaskAppend extends Activity implements View.OnClickListener {
 
         taskDAO = new TaskDAO(this);
 
-        Bundle bundle = getIntent().getExtras();
-        taskid = bundle.getInt("Task", 0);
+        taskid = getIntent().getExtras().getInt("TaskID");
 
         taskname = (TextView) findViewById(R.id.taskName);
-        String tName = taskDAO.getTaskByID(taskid).getTaskname();
+        String tName = "test";
+        //String tName = taskDAO.getTaskByID(taskid).getTaskname();
         taskname.setText(tName);
 
         startdate = (EditText) findViewById(R.id.start_date_tw);
@@ -57,11 +62,16 @@ public class TaskAppend extends Activity implements View.OnClickListener {
         btnAddProject = (Button) findViewById(R.id.add_to_project_btn);
         btnAddCategory = (Button) findViewById(R.id.add_category_btn);
 
+        startdate.setOnClickListener(this);
+        starttime.setOnClickListener(this);
+        enddate.setOnClickListener(this);
+        endtime.setOnClickListener(this);
+        ttc.setOnClickListener(this);
+        alertdate.setOnClickListener(this);
+        alerttime.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
         btnAddProject.setOnClickListener(this);
         btnAddCategory.setOnClickListener(this);
-
-
 
     }
 
@@ -93,7 +103,7 @@ public class TaskAppend extends Activity implements View.OnClickListener {
         if (v == btnDelete) {
             taskDAO = new TaskDAO(this);
             Task task = taskDAO.getTaskByID(taskid);
-            long tid = taskid;
+            int tid = taskid;
             String name =task.getTaskname();
 
 
@@ -101,13 +111,31 @@ public class TaskAppend extends Activity implements View.OnClickListener {
                     startdate.getText()+""+starttime.getText()
                     ,enddate.getText()+""+endtime.getText(),null,
                     description.getText().toString(),Long.valueOf(null),Long.valueOf(null));
-
         } else if (v == btnAddProject) {
             addProject();
         } else if (v == btnAddCategory) {
             addCategory();
+        } else if(v== startdate){
+
+        }else if(v==starttime){
+
+        }else if(v==enddate){
+
+        }else if (v==endtime){
+
+        }else if (v==ttc){
+
+
+        }else if (v==alertdate){
+
+        }else if (v== alerttime){
+
+
         }
+
     }
+
+
 
     public void addProject() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -175,3 +203,5 @@ public class TaskAppend extends Activity implements View.OnClickListener {
     }
 
 }
+
+
