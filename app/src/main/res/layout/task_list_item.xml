@@ -16,6 +16,7 @@
         android:textColor="@color/SecondaryColor"
         android:background="@color/MainColor"
         android:layout_toEndOf="@+id/btnTaskOptions"
+        android:layout_toRightOf="@+id/btnTaskOptions"
         android:textAlignment="center" />
 
     <ImageButton
