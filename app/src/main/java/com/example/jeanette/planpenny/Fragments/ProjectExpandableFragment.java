@@ -21,6 +21,7 @@ import com.example.jeanette.planpenny.Objects.Project;
 import com.example.jeanette.planpenny.Objects.Task;
 import com.example.jeanette.planpenny.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,7 +35,7 @@ public class ProjectExpandableFragment extends Fragment implements View.OnClickL
     private TextView emptyList;
 
 
-    private List<Project> listProject;
+    private ArrayList<Project> listProject;
     private ProjectDAO mProjectDAO;
 
     private List<Task> listTask;
@@ -58,17 +59,17 @@ public class ProjectExpandableFragment extends Fragment implements View.OnClickL
 
         listViewProject = (ExpandableListView) frag.findViewById(R.id.list);
 
-        addProject = (ImageButton) frag.findViewById(R.id.buttonAddProject);
+        addProject = (ImageButton) frag.findViewById(R.id.buttonAddTask);
         addProject.setOnClickListener(this);
 
-        mAdapter = new ProjectExpandableAdapter(getActivity(),listProject,inflater);
+        mAdapter = new ProjectExpandableAdapter(getActivity(),listProject);
         listViewProject.setAdapter(mAdapter);
 
         //fill the listview
         mProjectDAO = new ProjectDAO(getActivity());
         listProject = mProjectDAO.getAllProjects();
         if(listProject !=null && !listProject.isEmpty()){
-            mAdapter = new ProjectExpandableAdapter(getActivity(),listProject,inflater);
+            mAdapter = new ProjectExpandableAdapter(getActivity(),listProject);
             listViewProject.setAdapter(mAdapter);
 
         }else{
@@ -76,16 +77,8 @@ public class ProjectExpandableFragment extends Fragment implements View.OnClickL
             emptyList.setText("No projects yet press add button to create new");
             listViewProject.setVisibility(View.GONE);
         }
-
-
         return frag;
     }
-
-
-
-
-
-
 
     @Override
     public void onClick(View view) {
