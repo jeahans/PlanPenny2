@@ -1,5 +1,6 @@
 package com.example.jeanette.planpenny.Objects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ public class Project extends Category {
 
     List<Project> projects;
     private Project project;
-    private List<Task> taskList;
+    private ArrayList<Task> taskList;
 
     public Project(){}
     public Project(String projectname){
@@ -50,7 +51,12 @@ public class Project extends Category {
         projects.remove(project);
     }
 
-    public List<Task> getTaskList() {
+    public ArrayList<Task> getTaskList() {
         return taskList;
+    }
+
+    public void setTaskList(ArrayList <Task> taskList){
+        this.taskList = taskList;
+
     }
 }
