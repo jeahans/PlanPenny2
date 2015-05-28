@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/MainColor">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@android:id/list"
+        android:clickable="true"
+        android:textColor="@color/SecondaryColor"
+        android:background="@color/MainColor"
+        android:layout_toEndOf="@+id/btnTaskOptions"
+        android:textAlignment="center" />
+
+    <ImageButton
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:id="@+id/btnTaskOptions"
+        android:layout_alignBottom="@android:id/list"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/settings_grey" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:id="@+id/buttonDelete"
+        android:layout_alignParentRight="true"
+        android:background="@color/SecondaryColor"
+        android:textColor="@color/MainColor" />
+
+</RelativeLayout>

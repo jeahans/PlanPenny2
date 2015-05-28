@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jeanette.planpenny.Task.ItemFragment">
+
+    <ExpandableListView android:id="@+id/tasklistview" android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
+    <TextView android:id="@+id/taskCheckBox" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:gravity="center"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp" />
+    <CheckBox
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:background="@color/SecondaryColor"
+        android:textColor="@color/MainColor" />
+
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="36dp"
+        android:layout_margin="2dp"
+        android:id="@+id/options_btn"
+        android:background="@drawable/settings"
+        android:layout_alignTop="@+id/saveFilter"
+        android:layout_alignLeft="@+id/textView_header"
+        android:layout_alignStart="@+id/textView_header"
+        android:layout_gravity="right|top" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/buttonAddTask"
+        android:layout_gravity="right|bottom"
+        android:background="@drawable/addbutton"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:focusableInTouchMode="true" />
+
+
+</FrameLayout>

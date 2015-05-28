@@ -1,0 +1,61 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.example.jeanette.planpenny.Fragments.CategoriesFragment"
+    android:background="@drawable/transparentbackground"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/addNewCat"
+        android:visibility="gone">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextAddCat"
+            android:layout_weight="1"
+            android:text="Add category" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:id="@+id/buttonAddCat"
+            android:layout_gravity="right|top"
+            android:background="@color/MainColor"
+            android:textColor="@color/SecondaryColor" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/emptyCategoryTextView"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/buttonAddCategory"
+        android:layout_gravity="right|bottom"
+        android:background="@drawable/addbutton" />
+
+
+
+</FrameLayout>

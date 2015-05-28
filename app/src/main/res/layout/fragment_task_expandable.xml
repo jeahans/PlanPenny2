@@ -1,0 +1,425 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:clickable="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/taskMenuBar"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:background="@color/shadedColor"
+        android:padding="4dp">
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/delete_task_black"
+            android:layout_margin="15dp"
+
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:visibility="visible"
+            android:id="@+id/delete_button" />
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:id="@+id/add_to_project_btn"
+            android:button="@null"
+            android:background="@drawable/add_to_project_grey2"/>
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:id="@+id/add_category_btn"
+            android:button="@null"
+            android:background="@drawable/add_category_grey"/>
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:id="@+id/task_settings_btn"
+            android:button="@null"
+            android:background="@drawable/settings"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/start_date"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/shadedColor"
+        android:padding="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal|start"
+            android:text="Start: "
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"
+            android:id="@+id/task_start_textView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:layout_marginTop="4dp"
+            android:id="@+id/start_date_btn"
+            android:gravity="center_horizontal"
+            android:text="Start Date"
+            android:textSize="18sp"
+            android:textColor="#707070"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="  at  "
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="3"
+            android:layout_marginTop="4dp"
+            android:id="@+id/start_time"
+            android:gravity="center_horizontal"
+            android:text="00:00"
+            android:textSize="18sp"
+            android:textColor="#707070"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/end_date"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/shadedColor"
+        android:padding="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical|start"
+            android:text="End:   "
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"
+            android:id="@+id/task_end_textView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:layout_marginTop="4dp"
+            android:id="@+id/end_date_tw"
+            android:gravity="center_horizontal"
+            android:text="End Date"
+            android:textSize="18sp"
+            android:textColor="#707070"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="  at  "
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="3"
+            android:layout_marginTop="4dp"
+            android:id="@+id/end_time"
+            android:gravity="center_horizontal"
+            android:text="00:00"
+            android:textSize="18sp"
+            android:textColor="#707070"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ttc_layout"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/shadedColor"
+        android:padding="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical|start"
+            android:text="Time to complete: "
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_horizontal"
+            android:text="add"
+            android:textSize="18sp"
+            android:textColor="#707070"
+            android:id="@+id/ttl_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="4dp"
+            android:gravity="center_horizontal"
+            android:text="hours"
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reminder"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/shadedColor"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical|start"
+            android:text="Alert: "
+            android:textSize="18sp"
+            android:textColor="#707070"
+            android:id="@+id/task_alert_textView" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="2dp"
+            android:id="@+id/alert_date_tw"
+            android:gravity="center_horizontal"
+            android:text="Alert Date"
+            android:textSize="18sp"
+            android:textColor="#707070"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="  at  "
+            android:textSize="18sp"
+            android:textColor="#707070"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="3"
+            android:layout_marginTop="4dp"
+            android:id="@+id/alert_hours"
+            android:gravity="center_horizontal"
+            android:text="00:00"
+            android:textSize="18sp"
+            android:textColor="#707070"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/category"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/shadedColor"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical|start"
+            android:text="Category:"
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"
+            android:id="@+id/task_category_textView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:ems="9"
+            android:gravity="center_horizontal"
+            android:text="+ Add Category..."
+            android:textSize="18sp"
+            android:textColor="@color/shadedColor"
+            android:id="@+id/addCatBtn" />
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="1"
+            android:layout_margin="4dp"
+            android:id="@+id/cat1_box"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@color/shadedColor"
+            />
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="1"
+            android:layout_margin="4dp"
+            android:id="@+id/cat2_box"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@color/shadedColor"
+            />
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="1"
+            android:layout_margin="4dp"
+            android:id="@+id/cat3_box"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@color/shadedColor"
+            />
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="1"
+            android:layout_margin="4dp"
+            android:id="@+id/cat4_box"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"
+            />
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="1"
+            android:layout_margin="4dp"
+            android:id="@+id/cat5_box"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/description"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/shadedColor"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical|start"
+            android:text="Description:"
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"
+            android:id="@+id/task_description_textView" />
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="5dp"
+            android:ems="9"
+            android:gravity="center_horizontal"
+            android:text="+ Add Description..."
+            android:textSize="18sp"
+            android:textColor="#707070"
+            android:id="@+id/addDescBtn" />
+
+
+        <EditText
+            android:selectAllOnFocus="true"
+            android:inputType="textFilter|textNoSuggestions"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical|start"
+            android:text=""
+            android:textSize="18sp"
+            android:textColor="@color/MainColor"
+            android:background="@null"
+            android:id="@+id/content_description_textView" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
