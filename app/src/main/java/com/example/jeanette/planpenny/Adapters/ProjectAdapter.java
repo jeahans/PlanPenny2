@@ -149,7 +149,7 @@ public class ProjectAdapter extends BaseAdapter {
                 
                 String title = input.getText().toString();
                 Project project = getItem(position);
-                long projectID = project.getProjectID();
+                int projectID = project.getProjectID();
                 mProjectDAO.updateProject(projectID,title);
                 List<Project> newList = mProjectDAO.getAllProjects();
                 updateProjectList(newList);

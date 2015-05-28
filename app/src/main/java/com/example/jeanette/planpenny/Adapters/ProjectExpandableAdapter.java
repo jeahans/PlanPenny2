@@ -14,12 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jeanette.planpenny.DAO.ProjectDAO;
-import com.example.jeanette.planpenny.DAO.TaskDAO;
 import com.example.jeanette.planpenny.Objects.Project;
 import com.example.jeanette.planpenny.Objects.Task;
 import com.example.jeanette.planpenny.R;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,27 +26,40 @@ import java.util.List;
  */
 public class ProjectExpandableAdapter extends BaseExpandableListAdapter {
 
-    private ProjectDAO mProjectDAO;
-    private List<Project> listProject;
-    private TaskDAO mTaskDAO;
-    private List<Task> listTasks ;
+
     private Context context;
+    private ArrayList<Project> listProject;
+    ProjectDAO mProjectDAO = new ProjectDAO(context);
     TextView textView;
 
-    final int INVALID_ID = -1;
+
     private LayoutInflater inflater;
 
-    HashMap<Project, Integer> mIdMap = new HashMap<Project, Integer>();
 
 
-    public ProjectExpandableAdapter(Context context, List<Project> objects, LayoutInflater inflater) {
-        listProject = objects;
-        setInflater(inflater,context);
+
+    public ProjectExpandableAdapter(Context context, ArrayList<Project> listProject) {
+        this.context =context;
+        this.listProject = listProject;
+    }
+    public void addItem(Task item, Project group) {
+        if (!listProject.contains(group)) {
+            listProject.add(group);
+        }
+        int index = listProject.indexOf(group);
+        ArrayList<Task> ch = listProject.get(index).getTaskList();
+        ch.add(item);
+        listProject.get(index).setTaskList(ch);
     }
 
-    public void setInflater(LayoutInflater inflater, Context context) {
-        this.inflater = inflater;
-        this.context = context;
+    public Object getChild(int groupPosition, int childPosition) {
+        ArrayList<Task> chList = listProject.get(groupPosition).getTaskList();
+        return chList.get(childPosition);
+    }
+
+    public int getChildrenCount(int groupPosition) {
+        ArrayList<Task> chList = listProject.get(groupPosition).getTaskList();
+        return chList.size();
     }
 
 
@@ -58,10 +70,6 @@ public class ProjectExpandableAdapter extends BaseExpandableListAdapter {
         return 0;
     }
 
-    @Override
-    public int getChildrenCount(int groupPosition) {
-        return 1;
-    }
 
     @Override
     public Object getGroup(int groupPosition) {
@@ -70,12 +78,6 @@ public class ProjectExpandableAdapter extends BaseExpandableListAdapter {
 
     public List<Project> getItems(){
         return listProject;
-    }
-
-    @Override
-    public Task getChild(int groupPosition, int childPosition) {
-        List<Task> taskList = listProject.get(groupPosition).getTaskList();
-        return taskList.get(childPosition);
     }
 
     @Override
@@ -104,7 +106,6 @@ public class ProjectExpandableAdapter extends BaseExpandableListAdapter {
             convertView = inflater.inflate(R.layout.simple_list_item, null);
         }
 
-
         TextView item = (TextView) convertView.findViewById(android.R.id.list);
         Button delete = (Button) convertView.findViewById(R.id.buttonDelete);
         item.setOnClickListener(new View.OnClickListener()
@@ -114,7 +115,6 @@ public class ProjectExpandableAdapter extends BaseExpandableListAdapter {
             {
                 changeProjectDialog(groupPosition);
                 notifyDataSetChanged();
-
 
             }});
 
@@ -146,23 +146,16 @@ public class ProjectExpandableAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(final int parentPosition, final int childPosition, boolean isLastChild, View convertView, final ViewGroup parent) {
 
-        final Project project = listProject.get(parentPosition);
+        Task child = (Task) getChild(parentPosition, childPosition);
+
 
         if (convertView == null) {
+
             convertView = inflater.inflate(R.layout.project_child_row, null);
         }
-        listTasks = mTaskDAO.getTasksOfProjectID(project.getProjectID());
 
         textView = (TextView) convertView.findViewById(R.id.textView1);
-
-        // fill row data
-        Task currentItem = listTasks.get(childPosition);
-        if(currentItem != null) {
-            textView.setText(currentItem.getTaskname());
-
-        }
-
-
+        textView.setText(child.getTaskname());
         return convertView;
     }
 
@@ -197,7 +190,7 @@ public class ProjectExpandableAdapter extends BaseExpandableListAdapter {
 
                 String title = input.getText().toString();
                 Project project = listProject.get(position);
-                long projectID = project.getProjectID();
+                int projectID = project.getProjectID();
                 mProjectDAO.updateProject(projectID,title);
                 List<Project> newList = mProjectDAO.getAllProjects();
                 updateProjectList(newList);

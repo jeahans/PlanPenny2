@@ -99,12 +99,14 @@ public class TaskAdapter extends BaseAdapter {
             holder.btnTaskOption.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   Intent intent = new Intent(context,TaskAppend.class);
-                   mTaskDAO = new TaskDAO(context);
+
+                    mTaskDAO = new TaskDAO(context);
                     Task task = getItem(position);
-                    long i = task.getTaskID();
+                    int i = task.getTaskID();
+
+                    Intent intent = new Intent(context,TaskAppend.class);
                     intent.putExtra("TaskID",i);
-                   intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+
                     context.startActivity(intent);
                     Log.d("TaskAdapter", "You pressed the settings button");
                 }
@@ -175,7 +177,7 @@ public class TaskAdapter extends BaseAdapter {
 
                 String title = input.getText().toString();
                 Task task = getItem(position);
-                long taskID = task.getTaskID();
+                int taskID = task.getTaskID();
                 //mTaskDAO.updateTask(taskID,title);
                 mTaskDAO.updateTaskName(taskID,title);
                 List<Task> newList = mTaskDAO.getAllTasks();
