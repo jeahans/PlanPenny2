@@ -14,7 +14,6 @@ import org.json.JSONObject;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Jeanette on 18-05-2015.
@@ -61,20 +60,20 @@ public class ProjectDAO {
         return newProject;
     }
 
-    public boolean updateProject(Long projectID, String projectName) {
+    public boolean updateProject(int projectID, String projectName) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_PROJECT_NAME, projectName);
         return mDatabase.update(DBHelper.TABLE_PROJECT, values, DBHelper.COLUMN_PROJECT_ID + "=" + projectID, null) > 0;
     }
 
     public void deleteProject(Project project){
-        long id = project.getProjectID();
+        int id = project.getProjectID();
         System.out.println("the deleted project has the id: " + id);
         mDatabase.delete(DBHelper.TABLE_PROJECT,DBHelper.COLUMN_PROJECT_ID+"=+"+id,null);
     }
 
-    public List<Project> getAllProjects(){
-        List<Project> listProjects= new ArrayList<Project>();
+    public ArrayList<Project> getAllProjects(){
+        ArrayList<Project> listProjects= new ArrayList<Project>();
         Cursor cursor = mDatabase.query(DBHelper.TABLE_PROJECT,
                 mAllColumns, null, null, null, null, null);
         cursor.moveToFirst();
@@ -100,7 +99,7 @@ public class ProjectDAO {
 
 
 
-    public Project getProjectByID(long projectID) {
+    public Project getProjectByID(int projectID) {
         Cursor cursor = mDatabase.query(DBHelper.TABLE_PROJECT, mAllColumns,
                 DBHelper.COLUMN_PROJECT_ID+"=?",
                 new String[]{String.valueOf(projectID)},null,null,null);

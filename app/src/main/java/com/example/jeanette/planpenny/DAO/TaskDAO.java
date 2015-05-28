@@ -164,14 +164,18 @@ public class TaskDAO {
         task.setNote(cursor.getString(7));
         return task;
     }
-    public Task getTaskByID(long taskID) {
+    public Task getTaskByID(int taskID) {
+        Task task = null;
         Cursor cursor = mDatabase.query(DBHelper.TABLE_TASK, mAllColumns,
-                DBHelper.COLUMN_TASK_ID+"=?",
-                new String[]{String.valueOf(taskID)},null,null,null);
-        if(cursor!=null){
-            cursor.moveToFirst();
+                DBHelper.COLUMN_TASK_ID + "=?",
+                new String[]{String.valueOf(taskID)}, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            task = cursorToTask(cursor);
+
         }
-        Task task = cursorToTask(cursor);
+        //close cursor
+        cursor.close();
 
         return task;
     }
