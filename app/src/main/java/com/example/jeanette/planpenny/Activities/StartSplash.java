@@ -1,40 +1,53 @@
 package com.example.jeanette.planpenny.Activities;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Handler;
+import android.preference.PreferenceManager;
 
 import com.example.jeanette.planpenny.R;
 
-public class StartSplash extends ActionBarActivity {
+public class StartSplash extends Activity implements Runnable {
+
+    Handler handler = new Handler();
+    static StartSplash aktivitetDerVisesNu=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_start_splash);
+
+
+        if(savedInstanceState==null){
+            handler.postDelayed(this,3000);
+        }
+        aktivitetDerVisesNu=this;
     }
 
+    public void run(){
+        Boolean loggedIn = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("LoggedIn", false);
+        int userID = PreferenceManager.getDefaultSharedPreferences(this)
+                .getInt("UserID", 0);
+        if ((loggedIn )){
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_start_splash, menu);
-        return true;
-    }
+            //Opdater SQLite database med MySQL database
+            startActivity(new Intent(this, MainActivity.class));
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        }else{
+            startActivity(new Intent(this, LoginActivity.class));
         }
 
-        return super.onOptionsItemSelected(item);
+        aktivitetDerVisesNu.finish();
+        aktivitetDerVisesNu=null;
+
+    }
+
+    public void finish(){
+        super.finish();
+        handler.removeCallbacks(this);
+
     }
 }
