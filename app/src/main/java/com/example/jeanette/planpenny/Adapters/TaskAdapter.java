@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -91,8 +92,6 @@ public class TaskAdapter extends BaseAdapter {
                     List<Task> newList = mTaskDAO.getAllTasks();
                     updateTaskList(newList);
 
-
-
                 }
             });
 
@@ -104,9 +103,10 @@ public class TaskAdapter extends BaseAdapter {
                     Task task = getItem(position);
                     int i = task.getTaskID();
 
+                    PreferenceManager.getDefaultSharedPreferences(context).edit()
+                            .putInt("TaskID", i)
+                            .commit();
                     Intent intent = new Intent(context,TaskAppend.class);
-                    intent.putExtra("TaskID",i);
-
                     context.startActivity(intent);
                     Log.d("TaskAdapter", "You pressed the settings button");
                 }
