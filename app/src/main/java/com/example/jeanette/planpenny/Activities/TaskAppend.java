@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,12 +43,12 @@ public class TaskAppend extends Activity implements View.OnClickListener {
 
         taskDAO = new TaskDAO(this);
 
-        taskid = getIntent().getExtras().getInt("TaskID");
-
         taskname = (TextView) findViewById(R.id.taskName);
+
         String tName = "test";
         //String tName = taskDAO.getTaskByID(taskid).getTaskname();
         taskname.setText(tName);
+        Log.d(TAG,"Taskname: "+tName);
 
         startdate = (EditText) findViewById(R.id.start_date_tw);
         starttime = (EditText) findViewById(R.id.start_time);
